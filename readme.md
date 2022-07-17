@@ -1,8 +1,8 @@
-#Group Capstone Project
+## Group Capstone Project
 
-Topic - Hotel booking application using MERN stack and stripe payment gateway.
+# Topic - Hotel booking application using MERN stack and stripe payment gateway.
 
-Collaborators -
+# Collaborators -
 - Zhoha Damani
 - Megha
 - Joel
