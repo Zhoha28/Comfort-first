@@ -1,12 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import Homescreen from './screens/Homescreen';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <p>Welcome to Comfort First!</p>
-      </header>
+       <Navbar/>
+
+       <BrowserRouter>
+       <Routes>
+       <Route path="/home" exact element={<Homescreen />} />
+       </Routes>
+       </BrowserRouter>
+
+       <Footer></Footer>
     </div>
   );
 }

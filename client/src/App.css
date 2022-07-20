@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
 .App {
   text-align: center;
 }
@@ -36,3 +42,78 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+/* navbar styles */
+
+.navbar-brand{
+  font-family: 'Caveat', cursive;
+  font-size: 33px;
+  font-weight: bolder;
+}
+
+.active .nav-link{
+  color: white;
+ 
+}
+
+body{
+  font-family: 'Roboto Slab', serif;
+  text-align: left;
+}
+#roomcontainer{
+  text-align: left;
+
+}
+
+.roomcontainerrow{
+  justify-content: center;
+  margin: auto;
+  padding:5px 10px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+
+}
+.roomcontainerrow{
+  transition: all 0.4s ease;
+}
+
+.roomcontainerrow:hover{
+  padding:25px;
+}
+
+.floatright{
+  float: right;
+}
+
+
+
+.smallimg{
+  height: 230px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+
+.boxshadow {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.btn-holder{
+  margin-bottom: 10px;
+}
+.vertical-center{
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.points{
+  display: block;
+  padding: 3px;
+}
+
+
