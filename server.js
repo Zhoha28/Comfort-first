@@ -7,7 +7,10 @@ const app = express();
 // database configuration
 const dbConfig = require('./db')
 
-const roomsRoute = require('./routes/roomsRoute')
+const roomsRoute = require('./routes/roomsRoute');
+
+// to receive params
+app.use(express.json());
 
 app.use('/api/rooms', roomsRoute);
 

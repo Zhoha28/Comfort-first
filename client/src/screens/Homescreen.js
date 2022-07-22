@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Loader from '../components/Loader';
 
 
 import Room from '../components/Room';
+import Error from '../components/Error';
 
 
 function Homescreen() {
@@ -43,7 +45,7 @@ function Homescreen() {
 
   return (
     <div className="homescreen-section">
-      {loading ? (<h1>loading...</h1>) : error ?(<h1>error...</h1>) : (rooms.map(room=>{
+      {loading ? (<Loader> </Loader>) : error ?(<Error></Error>) : (rooms.map(room=>{
         return <div className="col-md-10 mt-5 mb-5 mx-auto">
           <Room room={room}></Room>
         </div>

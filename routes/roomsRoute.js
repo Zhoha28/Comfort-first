@@ -18,4 +18,22 @@ Router.get("/getallrooms", async(req, res) => {
    
 });
 
+
+// get a single room by its ID
+
+Router.post("/getroombyid", async(req, res) => {
+    const roomid = req.body.roomid;
+
+    console.log(req.body);
+    try {
+         const room = await Room.findOne({'_id' : roomid})
+         res.send(room);
+         console.log(room);
+    } catch (error) {
+         return res.status(400).json({ message: error });
+    }
+});
+
+
+
 module.exports = Router;
