@@ -8,10 +8,10 @@ function Footer() {
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="contact-content text-center">
-                    <a href="/" className='navbar-brand text-white'>Comfort First</a>
-                    <p><i>Experience the difference with us. and we promise you won't regret it.</i></p>
+                    <a href="/" className='navbar-brand text-white company'>Comfort First</a>
+                    <p className='rubick'><i>Experience the difference with us. and we promise you won't regret it.</i></p>
                     <div class="hr"></div>
-                    <h6>299 Doon Valley Dr, Kitchener, ON N2G 4M4.</h6>
+                    <h6 className='rubick'>299 Doon Valley Dr, Kitchener, ON N2G 4M4.</h6>
                     <div class="contact-social">
                         <ul>
                             <li><a class="hover-target" href=""><i class="fab fa-facebook-f"></i></a></li>

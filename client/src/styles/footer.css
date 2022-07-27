@@ -22,10 +22,10 @@
 }
 
 #footer .contact-content p::after {
-    background: #353C46;
+    background: #B99264;
     bottom: -30px;
     content: "";
-    height: 1px;
+    height: 2px;
     left: 50%;
     position: absolute;
     transform: translate(-50%);
@@ -82,4 +82,18 @@
 
 #footer img {
     width: 44px;
+}
+
+
+.company{
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.rubick{
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    color: #CCCCCC;
 }

@@ -1,0 +1,26 @@
+{
+  "name": "comfort-first",
+  "version": "1.0.0",
+  "description": "- Zhoha Damani\r - Megha\r - Joel\r - Mihir\r - Aakash",
+  "main": "db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhoha28/Comfort-first.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zhoha28/Comfort-first/issues"
+  },
+  "homepage": "https://github.com/Zhoha28/Comfort-first#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.4.7",
+    "nodemon": "^2.0.19",
+    "server": "^1.0.37"
+  }
+}

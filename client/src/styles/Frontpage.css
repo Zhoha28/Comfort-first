@@ -1,0 +1,76 @@
+#banner{
+    background-image: url('https://i.postimg.cc/VN9mqYkk/homepagebanner.png');
+    /* height: 00px; */
+}
+
+#banner #banner-h1{
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 77px;
+    font-weight: bold;
+}
+
+#banner #banner-p{
+    font-family: 'Rubik', sans-serif;
+    font-size: 40px;
+    color: white;
+}
+#cta{
+    background-color: #B99264;
+    color: white;
+
+}
+#banner-inner{
+
+    padding: 40px;
+   
+}
+
+
+
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    flex-wrap: wrap;
+  }
+  .outer-row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .outer-row{
+
+    justify-content: center;
+    align-items: center;
+  }
+
+.subtitle{
+    color: #CCCCCC;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    font-size: 20px;
+    line-height: 0px;
+  }
+
+
+  .title{
+    color: black;
+    font-family: 'Playfair Display', serif;
+    font-size: 55px;
+    text-align: center;
+
+  }
+  .description{
+    color: #757D85;
+    font-size: 22px;
+    font-family: 'Rubik', sans-serif;
+    border: none;
+    padding-top: 0px;
+    
+  }
+
+  .text-left-section{
+    padding: 50px;
+  }

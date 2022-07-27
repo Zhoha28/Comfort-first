@@ -1,0 +1,29 @@
+.card-featured-room{
+    width: auto;
+    max-width: 28rem;
+    min-height: 550px;
+}
+
+.featured-rooms-outer{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  
+}
+
+#outerbg{
+    background-color: #F8F9FA;
+}
+.roomname{
+    color: #B99264;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+}
+.roomdes{
+    color: #9BA0A5;
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+}

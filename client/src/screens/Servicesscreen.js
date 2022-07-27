@@ -1,80 +1,83 @@
-import React from 'react';
-import '../styles/services.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Loader from "../components/Loader";
 
-function Servicesscreen() {
-    return (
-        <section class="wrapper">
-            <div class="container-fostrap">
+import Error from "../components/Error";
 
-                <div class="content">
-                    <div class="container">
-                        <div>
-                            <h1>Our services</h1>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-4">
-                                <div class="card">
-                                    <a class="img-card" href="#">
-                                        <img src="https://i.postimg.cc/MKWQkg14/point3d-commercial-imaging-ltd-oxe-CZrodz78-unsplash.jpg" />
-                                    </a>
-                                    <div class="card-content">
-                                        <h4 class="card-title">
-                                            <a href="#"> Hassel Free hotel bookings
-                                            </a>
-                                        </h4>
-                                        <p class="">
-                                            Keen on taking the next step towards hassle-free, secure online bookings right now?
-                                            Book a chat with our experts to find out which solution is best for your vacation.
-                                        </p>
-                                    </div>
+import "../styles/services.css";
 
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4">
-                                <div class="card">
-                                    <a class="img-card" href="#">
-                                        <img src="https://i.postimg.cc/kXQPShZn/harshil-gudka-D1r-KHYi9lc-unsplash.jpg" />
-                                    </a>
-                                    <div class="card-content">
-                                        <h4 class="card-title">
-                                            <a href="http://www.fostrap.com/2016/02/awesome-material-design-responsive-menu.html"> Beach weddings packages
-                                            </a>
-                                        </h4>
-                                        <p class="">
+function ServiceScreen() {
+  // states for rooms to store room info
+  const [service, setservice] = useState([]);
 
-                                            We are there for your big day so that you and the people who are essential to you can be there as well, with dining halls for your reception and hotel blocks for your guests.
+  // loading state
+  const [loading, setloading] = useState();
 
+  // error state to store and display any errors
+  const [error, seterror] = useState();
 
-                                        </p>
-                                    </div>
+  useEffect(() => {
+    // fetch data through the API endpoint
+    async function fetchData() {
+      try {
+        setloading(true); // while getting the data promised
 
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4">
-                                <div class="card">
-                                    <a class="img-card" href="#">
-                                        <img src="https://i.postimg.cc/zf5mpwsn/campaign-creators-g-Msn-Xq-ILjp4-unsplash.jpg" />
-                                    </a>
-                                    <div class="card-content">
-                                        <h4 class="card-title">
-                                            <a href="#">Meeting rooms
-                                            </a>
-                                        </h4>
-                                        <p class="">
+        // getting the data
+        const data = (await axios.get("/api/service/getservicedata")).data;
+        //    for reference.
+        console.log("The data from api - " + data);
+        //    setting data from api to the rooms state using setrooms
+        setservice(data);
 
-                                            Our attentive  staff understands how important it is to create meaningful connections at your next meeting and also still enjoy in the vacation. You wont have to worry on your vacation, We make it easy to plan and book your next meeting.
-                                        </p>
-                                    </div>
+        setloading(false); // after getting the data promised
+      } catch (error) {
+        // catching if any errors
+        console.log(error);
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        seterror(true); //if any error
+        setloading(false); //not loading anymore
+      }
+    }
+    // calling the async function
+    fetchData();
+  }, []);
+
+  return (
+    <section class="wrapper">
+      <div class="container-fostrap">
+        <div class="content">
+          <div class="container">
+            <div>
+              <h1>Our services</h1>
             </div>
-        </section>
-
-    )
+            <div class="row">
+              {loading ? (
+                <Loader> </Loader>
+              ) : error ? (
+                <Error></Error>
+              ) : (
+                service.map((sr) => {
+                  return (
+                    <div className="col-xs-12 col-sm-4">
+                      <div class="card">
+                        <a className="img-card" href="#">
+                          <img src={sr.pic} />
+                        </a>
+                        <div className="card-content">
+                          <h4 className="card-title">{sr.heading}</h4>
+                          <p className="">{sr.content}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default Servicesscreen
+export default ServiceScreen;

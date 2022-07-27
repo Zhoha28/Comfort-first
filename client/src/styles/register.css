@@ -1,0 +1,19 @@
+input{
+    box-shadow: none ;
+    margin-top: 10px;
+    border: 1px solid black;
+}
+
+.bs{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 20px ;
+    border-radius: 5px ;
+    padding: 20px;
+}
+
+h2{
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+} 
