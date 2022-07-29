@@ -1,4 +1,7 @@
 import "../styles/register.css";
+import Error from '../components/Error';
+import Loader from '../components/Loader';
+import Success from '../components/Success';
 import axios from "axios";
 import React, { useState } from "react";
 
@@ -7,6 +10,9 @@ function Registerscreen() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [cpassword, setcpassword] = useState("");
+  const [loading, setloading] = useState(false);
+  const [error, seterror] = useState();
+  const [success, setsuccess] = useState();
   async function register() {
     if (password === cpassword) {
       const user = {
@@ -16,9 +22,19 @@ function Registerscreen() {
         cpassword,
       };
       try {
+        setloading(true);
         const result = await axios.post("/api/users/register", user).data;
+        setloading(false);
+        setsuccess(true);
+
+        setname('');
+        setemail('');
+        setpassword('');
+        setcpassword('');
       } catch (error) {
         console.log(error);
+        setloading(false);
+        seterror(true);
       }
     } else {
       alert("Passwords not matched");
@@ -26,8 +42,11 @@ function Registerscreen() {
   }
   return (
     <div>
-      <div className="row-justify-content-center mt-5">
-        <div className="col-mid-5 mt-5">
+      {loading && (<Loader/>)}
+      {success && (<Success success='User Registered Successfully' />)}
+      {error && (<Error error='Email already registred' />)}
+      <div className="row-justify-content-center" id="registerform">
+        <div className="col-mid-5">
           <div className="bs">
             <h2>Register</h2>
             <p>
@@ -75,7 +94,7 @@ function Registerscreen() {
               ></input>
             </p>
 
-            <button className="btn btn-primary mt-3 " onClick={register}>
+            <button className="btn btn-primary btn-small-primary " onClick={register}>
               Register
             </button>
           </div>

@@ -44,7 +44,7 @@ function FeaturedRooms() {
   
     return (
         <section className="px-4" id="outerbg">
-            <h4 className="subtitle">OUR LUXURY ROOMS</h4>
+            <h4 className="subtitle pt-4">OUR LUXURY ROOMS</h4>
             <h2 className='title'>Featured Rooms</h2>
             <div className="featured-rooms-outer px-4">
             {loading ? (<Loader> </Loader>) : error ?(<Error></Error>) : (rooms.map(room=>{

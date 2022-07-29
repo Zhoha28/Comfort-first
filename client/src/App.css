@@ -42,7 +42,6 @@
 
 
 
-/
 /* navbar styles */
 
 .navbar-brand{
@@ -64,7 +63,10 @@ body{
   text-align: left;
 
 }
-
+h2{
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+}
 .roomcontainerrow{
   justify-content: center;
   margin: auto;
@@ -123,7 +125,7 @@ body{
 .btn-primary{
   background-color: #B99264;
   font-family: 'Rubik', sans-serif;
-  font-size: 28px;
+  /* font-size: 28px; */
   border: #B99264 1px solid;
   transition: all 0.3s linear;
 }
@@ -138,9 +140,36 @@ body{
   font-size: 18px;
   border: #B99264 1px solid;
   transition: all 0.3s linear;
+  color: white;
 }
 .btn-small-primary:hover{
   background-color: white;
   color: #B99264;
   border: #B99264 1px solid;
+}
+
+#justify-cn{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#justifycn{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+
+.justfify-center{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }

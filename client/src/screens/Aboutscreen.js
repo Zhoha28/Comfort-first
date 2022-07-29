@@ -1,36 +1,79 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Loader from "../components/Loader";
+
+import Error from "../components/Error";
 
 function Aboutscreen() {
+
+   // states for rooms to store room info
+   const [service, setservice] = useState([]);
+
+   // loading state
+   const [loading, setloading] = useState(true);
+ 
+   // error state to store and display any errors
+   const [error, seterror] = useState(false);
+
+   useEffect(() => {
+    // fetch data through the API endpoint
+    async function fetchData() {
+      try {
+        setloading(true); // while getting the data promised
+
+        // getting the data
+        const data = (await axios.get("/api/about/getallabout")).data;
+        //    for reference.
+        console.log("The data from api - " + data);
+        //    setting data from api to the rooms state using setrooms
+        setservice(data);
+
+        setloading(false); // after getting the data promised
+      } catch (error) {
+        // catching if any errors
+        console.log(error);
+
+        seterror(true); //if any error
+        setloading(false); //not loading anymore
+      }
+    }
+    // calling the async function
+    fetchData();
+  }, []);
+
   return (
+    
     <div>
-        <img src="https://i.postimg.cc/7bv69xps/cherrydeck-r-MILC1-PIw-M0-unsplash.jpg" className='my-2' />
+       {loading ? (
+                <Loader> </Loader>
+              ) : error ? (
+                <Error></Error>
+              ) : (
+                service.map((sr) => {
+                  return (
+                    <div className="col-xs-12 col-sm-12 justify-center mx-auto" id="justify-cn">
+        <img src={sr.pic} className='my-2' />
         <div id="about" class="container-fluid">
       <div class="row mx-4 my-4">
         <div class="col-md-12">
-          <h2>About Comfort First</h2>
+          <h2>About {sr.heading}</h2>
           <br />
           <div class="jumbotron">
             <h4>Hotel Overview</h4>
             <br />
             <p>
-              Honest, uncomplicated and comfort are the keys with us here at the
-              Comfort First® Waterloo. Come relax in our modern suites and rooms
-              where our guests enjoy high-end amenities including complimentary
-              high-speed Internet, large flat-screen televisions, plush
-              pillowtop mattresses and a mini-fridge. Location is key to a
-              hotel’s popularity and our proximity to the Village of St. Jacobs
-              and other enticing Southern Ontario attractions make our hotel the
-              ideal destination. Travelers will love our hotel's central
-              location in the Waterloo region, just minutes from Waterloo’s
-              Technology Park, RIM Park, and both Universities. Enjoy your stay!
+              {sr.description}
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </div> </div>
+    );
+                })
+              )}
 
-
     </div>
+    
   )
 }
 

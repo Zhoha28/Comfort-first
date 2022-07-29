@@ -27,7 +27,7 @@ function Frontpage() {
                     <h4 className="subtitle">STAY WITH OUR LUXURY ROOMS</h4>
                     <h2 className='title'>Stay and Enjoy</h2>
                     <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus illo similique natus, a recusandae? Dolorum, unde a quibusdam est? Corporis deleniti obcaecati quibusdam inventore fuga eveniet! Qui delectus tempore amet!</p>
-                    <a href="#" class="btn btn-primary">More about us</a>
+                    <a href="/about" class="btn btn-primary">More about us</a>
                 </div>
                 
             </div>
