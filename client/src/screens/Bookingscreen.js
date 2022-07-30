@@ -7,6 +7,7 @@ import Error from '../components/Error';
 import Loader from '../components/Loader';
 import moment from 'moment';
 import StripeCheckout from 'react-stripe-checkout';
+import Swal from 'sweetalert2';
 
 
 function Bookingscreen(match) {
@@ -78,16 +79,25 @@ function Bookingscreen(match) {
             token
         }
         try {
-            const result = await axios.post('/api/bookings/bookroom', bookingDetails,)
+            setloading(true);
+            const result = await axios.post('/api/bookings/bookroom', bookingDetails);
+            setloading(false)
+            Swal.fire('Congrats' , 'Your Room has booked succeessfully' , 'success').then(result=>{
+                window.location.href='/profile'
+            })
         } catch (error) {
-
+            setloading(false)
+            Swal.fire('Oops' , 'Something went wrong , please try later' , 'error');
         }
     }
 
 
     return (
         <div className='m-5'>
-            {loading ? (<Loader> </Loader>) : room ? (<div>
+           {loading ? (<Loader/>) : error ? (<Error/>) 
+            
+            : room ? 
+            (<div>
 
                 <div className="container">
 
