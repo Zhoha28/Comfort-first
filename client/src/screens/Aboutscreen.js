@@ -52,13 +52,13 @@ function Aboutscreen() {
                 service.map((sr) => {
                   return (
                     <div className="col-xs-12 col-sm-12 justify-center mx-auto" id="justify-cn">
-        <img src={sr.pic} className='my-2' />
-        <div id="about" class="container-fluid">
-      <div class="row mx-4 my-4">
-        <div class="col-md-12">
+        <img src={sr.pic} className='my-2' alt="{sr.heading}"/>
+        <div id="about" className="container-fluid">
+      <div className="row mx-4 my-4">
+        <div className="col-md-12">
           <h2>About {sr.heading}</h2>
           <br />
-          <div class="jumbotron">
+          <div className="jumbotron">
             <h4>Hotel Overview</h4>
             <br />
             <p>

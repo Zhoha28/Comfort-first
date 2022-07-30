@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
 
+
 function Room({ room , fromdate , todate}) {
 
   // hook for show modal
@@ -11,7 +12,8 @@ function Room({ room , fromdate , todate}) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
+//  const totalDays = moment.duration(todate.diff(fromdate)).asDays()+1;
+//  console.log(totalDays);
 
   return (
     <div className='container mx-auto' id='roomcontainer'>
@@ -38,7 +40,7 @@ function Room({ room , fromdate , todate}) {
             <Link to={`/book/${room._id}/${fromdate}/${todate}`}>
             <button className="btn btn-dark m-2">Book Now</button>
           </Link>
-          )}
+          )} 
 
           </div>
         </div>

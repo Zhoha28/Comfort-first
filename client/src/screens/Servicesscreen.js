@@ -43,14 +43,14 @@ function ServiceScreen() {
   }, []);
 
   return (
-    <section class="wrapper">
-      <div class="container-fostrap">
-        <div class="content">
-          <div class="container">
+    <section className="wrapper">
+      <div className="container-fostrap">
+        <div className="content">
+          <div className="container">
             <div>
               <h1>Our services</h1>
             </div>
-            <div class="row">
+            <div className="row">
               {loading ? (
                 <Loader> </Loader>
               ) : error ? (
@@ -59,9 +59,9 @@ function ServiceScreen() {
                 service.map((sr) => {
                   return (
                     <div className="col-xs-12 col-sm-4">
-                      <div class="card">
-                        <a className="img-card" href="#">
-                          <img src={sr.pic} />
+                      <div className="card">
+                        <a className="img-card" href="/">
+                          <img src={sr.pic} alt="{sr.heading}"/>
                         </a>
                         <div className="card-content">
                           <h4 className="card-title">{sr.heading}</h4>

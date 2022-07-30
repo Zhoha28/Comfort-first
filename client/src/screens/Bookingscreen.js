@@ -7,30 +7,34 @@ import Error from '../components/Error';
 import Loader from '../components/Loader';
 import moment from 'moment';
 
-function Bookingscreen({match}) {
-    // get the roomid parameter
-    // for reference - ignore
-    console.log("printing the params", useParams());
 
+function Bookingscreen(match) {
+    // get the roomid parameter
+    const { roomid } = useParams();
+
+    const { fromdate } = useParams(moment(match.fromdate, 'DD-MM-YYYY'));
+    const { todate } = useParams(moment(match.todate, 'DD-MM-YYYY'));
+    // { fromdate } = setParams(moment(fromdate , 'DD-MM-YYYY'));
+
+    // console.log("fromdate " + fromdate)
     // states for rooms to store room info
     const [room, setroom] = useState([]);
 
     // loading state
-    const [loading, setloading] = useState(true);
+    const [loading, setloading] = useState();
+
+    // image
+    const [img, setimg] = useState();
 
     // error state to store and display any errors
-    const [error, seterror] = useState(false);
+    const [error, seterror] = useState();
 
-    const { roomid } = useParams();
-    
-    // const roomid = match.params.roomid;
-    const { fromdate } = moment(useParams('DD-MM-YYYY'));
-    const { todate } = moment(useParams('DD-MM-YYYY'));
-    // const fromdate = moment(match.params.fromdate,'DD-MM-YYYY');
-    // const todate = moment(match.params.todate,'DD-MM-YYYY');
+    // const totalDays = moment.duration(todate.diff(fromdate)).asDays()+1
+    const totaldays = moment(todate, 'DD-MM-YYYY').diff(moment(fromdate, 'DD-MM-YYYY'), 'days');
+    const [totalamount, settotalamount] = useState(0)
 
-    const totaldays = moment.duration(todate.diff(fromdate)).asDays()+1;
-    const [totalamount, settotalamount] = useState();
+    // const [totalAmount , settotalAmount]=useState();
+    console.log("totalday - " + totaldays);
 
     // useeffect
     useEffect(() => {
@@ -40,9 +44,10 @@ function Bookingscreen({match}) {
                 setloading(true); // while getting the data promised
 
                 const data = (await axios.post("/api/rooms/getroombyid", { roomid: roomid })).data;
-                settotalamount(data.rentperday*totaldays);
                 setroom(data);
-                console.log("data from api", data);
+                // console.log("data from api", data);
+                settotalamount(data.rentperday * totaldays);
+                setimg(data.imageurls[0])
                 setloading(false); // after getting the data promised
             } catch (error) {
                 // catching if any errors
@@ -55,6 +60,8 @@ function Bookingscreen({match}) {
         // calling the async function
         fetchData();
     }, []);
+
+
 
     async function bookRoom(){
         const bookingDetails = {
@@ -72,59 +79,68 @@ function Bookingscreen({match}) {
         }
     }
 
-
     return (
         <div className='m-5'>
             {loading ? (<Loader> </Loader>) : room ? (<div>
 
+                <div className="container">
 
-                <div class="container">
-
-                    <div class="grid product">
-                        <div class="column-xs-12 column-md-7">
-                            <div class="product-gallery">
-                                <div class="product-image">
-                                    {/* <img src={room.imageurls[1]} alt={room.name}/> */}
+                    <div className="grid product">
+                        <div className="column-xs-12 column-md-7">
+                            <div className="product-gallery">
+                                <div className="product-image">
+                                    <img src={img} alt="{room.name}"></img>
                                 </div>
 
                             </div>
                         </div>
-                        <div class="column-xs-12 column-md-5">
+                        <div className="column-xs-12 column-md-5">
                             <h1>{room.name}</h1>
                             <h2>${room.rentperday}/ day</h2>
-                            <div class="description">
+                            <div className="description">
 
                                 <p>{room.description}</p>
                             </div>
-                            <button class="btn btn-dark" onClick={bookRoom}>Pay Now</button>
+                            <button className="btn btn-dark" onClick={bookRoom}>Pay Now</button>
                         </div>
                     </div>
                 </div>
 
-                <table class="table">
+                <table className="table">
                     <thead>
                         <tr>
+
                             <th scope="col">Name</th>
-                            <th scope="col">From Date </th>
-                            <th scope="col">To Date</th>
                             <th scope="col">Amount</th>
+                            <th scope="col">From Date</th>
+                            <th scope="col">To Date</th>
                             <th scope="col">Total days</th>
+
                             <th scope="col">Rent per day</th>
                             <th scope="col">Total Amount</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">{JSON.parse(localStorage.getItem('currentUser')).name}</th>
-                            <td>{match.params.fromdate}</td>
-                            <td>{match.params.todate}</td>
-                            <td>Lorem ipsum</td>
+                            {/* {console.log(JSON.parse(localStorage.getItem('currentUser'))._id)} */}
+                        <th scope="row">{JSON.parse(localStorage.getItem('currentUser')).name}</th>
+                            <td>$ {room.rentperday}</td>
+
+                            <td>{fromdate}</td>
+                            <td>{todate}</td>
                             <td>{totaldays}</td>
                             <td>{room.rentperday}</td>
                             <td>{totalamount}</td>
+
+
                         </tr>
+
                     </tbody>
                 </table>
+
+
+
+
 
             </div>) : (<Error></Error>)}
         </div>
