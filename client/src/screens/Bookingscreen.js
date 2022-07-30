@@ -64,25 +64,24 @@ function Bookingscreen(match) {
 
 
 
-    async function bookRoom() {
+
+
+    async function onToken(token) {
+        console.log(token);
         const bookingDetails = {
             room,
             userid: JSON.parse(localStorage.getItem('currentUser'))._id,
             fromdate,
             todate,
             totalamount,
-            totaldays
+            totaldays,
+            token
         }
         try {
-            const result = await axios.post('/api/bookings/bookroom', bookingDetails)
+            const result = await axios.post('/api/bookings/bookroom', bookingDetails,)
         } catch (error) {
 
         }
-    }
-
-
-    async function onToken(token) {
-        console.log(token);
     }
 
 
@@ -112,10 +111,10 @@ function Bookingscreen(match) {
                             <StripeCheckout
                                 amount={totalamount * 100}
                                 token={onToken}
-                                currency='cad'
+                                currency='CAD'
                                 stripeKey="pk_test_51LR4xpIAL09mD6D1DligdTHdNu9996tTqUFG1MC6O7G9vLQCBjO75IWcmz7oGq6g8tyRDydBSOXukKGrSVvgm2ZJ00xUJVtCPS"
                             >
-                                <button className="btn btn-dark">Pay Now</button>
+                                <button className="btn btn-primary">Pay Now</button>
                             </StripeCheckout>
                         </div>
                     </div>

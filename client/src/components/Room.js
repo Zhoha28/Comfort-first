@@ -21,7 +21,7 @@ function Room({ room , fromdate , todate}) {
       
       <div className='row justify-content-center mt-5 boxshadow roomcontainerrow' >
         <div className='col-md-4 '>
-          <img src={room.imageurls[0]} className='smallimg' alt="{room.name}"></img>
+          <img src={room.imageurls[0]} className='smallimg' alt={room.name}></img>
 
         </div>
         <div className='col-md-7 text-left vertical-center'>
