@@ -6,6 +6,7 @@ import '../styles/room.css';
 import Error from '../components/Error';
 import Loader from '../components/Loader';
 import moment from 'moment';
+import StripeCheckout from 'react-stripe-checkout';
 
 
 function Bookingscreen(match) {
@@ -63,21 +64,27 @@ function Bookingscreen(match) {
 
 
 
-    async function bookRoom(){
+    async function bookRoom() {
         const bookingDetails = {
             room,
-            userid:JSON.parse(localStorage.getItem('currentUser'))._id,
+            userid: JSON.parse(localStorage.getItem('currentUser'))._id,
             fromdate,
             todate,
             totalamount,
             totaldays
         }
-        try{
-            const result = await axios.post('/api/bookings/bookroom',bookingDetails)
-        }catch(error){
+        try {
+            const result = await axios.post('/api/bookings/bookroom', bookingDetails)
+        } catch (error) {
 
         }
     }
+
+
+    async function onToken(token) {
+        console.log(token);
+    }
+
 
     return (
         <div className='m-5'>
@@ -101,7 +108,15 @@ function Bookingscreen(match) {
 
                                 <p>{room.description}</p>
                             </div>
-                            <button className="btn btn-dark" onClick={bookRoom}>Pay Now</button>
+                            
+                            <StripeCheckout
+                                amount={totalamount * 100}
+                                token={onToken}
+                                currency='cad'
+                                stripeKey="pk_test_51LR4xpIAL09mD6D1DligdTHdNu9996tTqUFG1MC6O7G9vLQCBjO75IWcmz7oGq6g8tyRDydBSOXukKGrSVvgm2ZJ00xUJVtCPS"
+                            >
+                                <button className="btn btn-dark">Pay Now</button>
+                            </StripeCheckout>
                         </div>
                     </div>
                 </div>
@@ -123,7 +138,7 @@ function Bookingscreen(match) {
                     <tbody>
                         <tr>
                             {/* {console.log(JSON.parse(localStorage.getItem('currentUser'))._id)} */}
-                        <th scope="row">{JSON.parse(localStorage.getItem('currentUser')).name}</th>
+                            <th scope="row">{JSON.parse(localStorage.getItem('currentUser')).name}</th>
                             <td>$ {room.rentperday}</td>
 
                             <td>{fromdate}</td>

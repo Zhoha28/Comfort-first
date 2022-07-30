@@ -4,3 +4,19 @@
 .btn-drop{
     font-size: 18px !important;
 }
+
+.dropdown-menu{
+    display: inline-block;
+    background-color: #212529;
+    color: white;
+}
+.navbar-nav{
+    justify-content: flex-end;
+
+}
+.dropdown-item{
+    background-color: #212529;
+    color: white;
+    width: auto;
+    margin: 0px;
+}

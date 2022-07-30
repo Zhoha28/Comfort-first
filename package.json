@@ -25,6 +25,7 @@
     "mongoose": "^6.4.7",
     "nodemon": "^2.0.19",
     "popper.js": "^1.16.1",
+    "react-stripe-checkout": "^2.6.3",
     "server": "^1.0.37"
   }
 }
