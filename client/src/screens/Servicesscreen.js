@@ -43,13 +43,16 @@ function ServiceScreen() {
   }, []);
 
   return (
+    <section className="px-4" id="outerbg">
+            <h4 className="subtitle pt-4">PROVIDING EXCLUSIVE SERVICES</h4>
+            <h2 className='title'>Our Services</h2>
     <section className="wrapper">
       <div className="container-fostrap">
         <div className="content">
           <div className="container">
-            <div>
+            {/* <div>
               <h1>Our services</h1>
-            </div>
+            </div> */}
             <div className="row">
               {loading ? (
                 <Loader> </Loader>
@@ -76,6 +79,7 @@ function ServiceScreen() {
           </div>
         </div>
       </div>
+    </section>
     </section>
   );
 }

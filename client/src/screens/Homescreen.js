@@ -11,6 +11,7 @@ import 'antd/dist/antd.min.css';
 
 
 
+
 const { RangePicker } = DatePicker;
 function Homescreen() {
   // states for rooms to store room info
@@ -29,6 +30,9 @@ function Homescreen() {
 
   
   const [duplicaterooms, setduplicaterooms] = useState([]);
+  const[searchkey,setsearchkey] = useState();
+  const[type,settype]=useState('all');
+
 
   useEffect(() => {
     // fetch data through the API endpoint
@@ -97,14 +101,43 @@ function Homescreen() {
       setrooms(temprooms);
     }
   }
+  function filterBySearch(){
+    const temprooms = duplicaterooms.filter(room=>room.name.toLowerCase().includes(searchkey.toLowerCase()))
+    setrooms(temprooms)
+  }
+
+  function filterByType(e){
+    settype(e)
+    if(e!=="all"){
+      const temprooms = duplicaterooms.filter(room=>room.type.toLowerCase()===e.toLowerCase())
+    setrooms(temprooms);
+    }
+    else{
+      setrooms(duplicaterooms)
+    }
+  }
   return (
 
     <div className="container">
       <div className="row mt-5 mx-5">
 
         <RangePicker format='DD-MM-YYYY' onChange={filterByDate} />
+       
 
       </div>
+      <div className="row mt-5 mx-5">
+        <input type ="text" className="form-control" placeholder="Search Rooms" value={searchkey} onChange={(e)=>{setsearchkey(e.target.value)}} onKeyUp={filterBySearch}>
+        </input>
+
+      </div>
+      <div className="row mt-5 mx-5">
+      <select className="form-control" value={type} onChange={(e)=>{filterByType(e.target.value)}}>
+        <option value="all">All</option>
+        <option value="delux">Delux</option>
+        <option value="non-delux">Non-Delux</option>
+      </select> 
+      </div>
+
       <div className="homescreen-section">
 
         {loading ? (<Loader> </Loader>) : error ? (<Error></Error>) : (rooms.map(room => {

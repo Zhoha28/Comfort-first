@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 function Room({ room , fromdate , todate}) {
 
+  
   // hook for show modal
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -16,6 +17,7 @@ function Room({ room , fromdate , todate}) {
 //  console.log(totalDays);
 
   return (
+    
     <div className='container mx-auto' id='roomcontainer'>
 
       

@@ -41,6 +41,9 @@ function Bookingscreen(match) {
     // useeffect
     useEffect(() => {
         // fetch data through the API endpoint
+        if(!localStorage.getItem('currentUser')){
+            window.location.reload='/login'
+        }
         async function fetchData() {
             try {
                 setloading(true); // while getting the data promised
@@ -93,6 +96,9 @@ function Bookingscreen(match) {
 
 
     return (
+        <section className="px-4" id="outerbg">
+            <h4 className="subtitle pt-4">BOOKING DETAILS ABOUT</h4>
+            <h2 className='title'>Your Room</h2>
         <div className='m-5'>
            {loading ? (<Loader/>) : error ? (<Error/>) 
             
@@ -168,6 +174,7 @@ function Bookingscreen(match) {
 
             </div>) : (<Error></Error>)}
         </div>
+        </section>
     );
 }
 

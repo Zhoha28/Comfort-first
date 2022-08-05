@@ -13,6 +13,7 @@ import Aboutscreen from './screens/Aboutscreen';
 import Loginscreen from './screens/Loginscreen';
 import Registerscreen from './screens/Registerscreen';
 import Homescreen from './screens/Homescreen';
+import Profilescreen from './screens/Profilescreen';
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
        <Route path='/about' element={<Aboutscreen/>}/>
        <Route path='/register' element={<Registerscreen/>}/>
        <Route path='/login' element={<Loginscreen/>}/>
+       <Route path='/profile' element={<Profilescreen/>}/>
 
        </Routes>
        </BrowserRouter>

@@ -42,7 +42,9 @@ function Aboutscreen() {
   }, []);
 
   return (
-    
+    <section className="px-4" id="outerbg">
+            <h4 className="subtitle pt-4">SOME INTERESTING INFORMATION</h4>
+            <h2 className='title'>About Us</h2>
     <div>
        {loading ? (
                 <Loader> </Loader>
@@ -56,7 +58,7 @@ function Aboutscreen() {
         <div id="about" className="container-fluid">
       <div className="row mx-4 my-4">
         <div className="col-md-12">
-          <h2>About {sr.heading}</h2>
+          {/* <h2>About {sr.heading}</h2> */}
           <br />
           <div className="jumbotron">
             <h4>Hotel Overview</h4>
@@ -73,7 +75,7 @@ function Aboutscreen() {
               )}
 
     </div>
-    
+    </section>
   )
 }
 
