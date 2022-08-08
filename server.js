@@ -15,11 +15,21 @@ const aboutRoute = require("./routes/aboutRoute");
 // to receive params
 app.use(express.json());
 
+// add by ak
+app.use("/", express.static("build"));
+
+app.get(
+  ["/", "/services", "/about", "/login", "/home", "/register", "/profile"],
+  function (req, res) {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+  }
+);
+
 app.use("/api/rooms", roomsRoute);
 app.use("/api/users", userRoute);
 app.use("/api/service", serviceRoute);
-app.use("/api/bookings",bookingsRoute);
-app.use("/api/about",aboutRoute);
+app.use("/api/bookings", bookingsRoute);
+app.use("/api/about", aboutRoute);
 //port for express - 3000 in this case
 // const port = process.env.PORT || 6000;
 const port = 6001;

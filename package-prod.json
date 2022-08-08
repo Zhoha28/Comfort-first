@@ -1,0 +1,22 @@
+{
+  "name": "comfort-first",
+  "version": "1.0.0",
+  "description": "- Zhoha Damani\r - Megha\r - Joel\r - Mihir\r - Aakash",
+  "main": "db.js",
+  "dependencies": {
+    "express": "^4.18.1",
+    "bootstrap": "^5.2.0",
+    "jquery": "^3.6.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.4.7",
+    "nodemon": "^2.0.19",
+    "popper.js": "^1.16.1",
+    "react-stripe-checkout": "^2.6.3",
+    "server": "^1.0.37",
+    "stripe": "^9.16.0",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

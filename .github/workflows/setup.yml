@@ -1,0 +1,39 @@
+name: "CI/CD comfront-first EBS"
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    env:
+      CI: false
+    outputs:
+      versionid: ${{steps.vlable.outputs.id}}
+    steps:
+      - name: "checkout"
+        uses: actions/checkout@v3
+      - name: "Installing dependency in client side"
+        run: "npm --prefix ./client install"
+      - name: "Building build file"
+        run: "npm --prefix ./client run build "
+      - name: "Copying build fold from client to main folder"
+        run: "cp -R ./client/build ."
+      - name: "Generating version-label id"
+        id: vlable
+        run: echo "::set-output name=id::ver-`date +%H-%M-%S`"
+      - name: "Renaming package-prod to package"
+        run: mv package-prod.json package.json
+      - name: "compression started"
+        run: zip -r "artifact.zip" build db.js models routes server.js package.json
+      - run: echo "${{steps.vlable.outputs.id}}"
+      - name: "Deploy to Elastic Bean"
+        uses: einaregilsson/beanstalk-deploy@v20
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: comfort-first
+          environment_name: Comfortfirst-env
+          region: ca-central-1
+          version_label: "${{steps.vlable.outputs.id}}"
+          deployment_package: artifact.zip
+      - name: "list"
+        run: ls
