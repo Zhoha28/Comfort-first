@@ -1,6 +1,9 @@
 //express variable
 const express = require("express");
 
+// added by ak
+const path = require("path");
+
 // calling it
 const app = express();
 
