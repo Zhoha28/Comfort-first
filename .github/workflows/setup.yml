@@ -30,8 +30,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: comfort-first
-          environment_name: Comfortfirst-env
+          application_name: comfort-first-project
+          environment_name: Comfortfirstproject-env
           region: ca-central-1
           version_label: "${{steps.vlable.outputs.id}}"
           deployment_package: artifact.zip
