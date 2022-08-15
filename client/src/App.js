@@ -14,6 +14,7 @@ import Loginscreen from './screens/Loginscreen';
 import Registerscreen from './screens/Registerscreen';
 import Homescreen from './screens/Homescreen';
 import Profilescreen from './screens/Profilescreen';
+import Adminscreen from './screens/Adminscreen';
 function App() {
   return (
     <div className="App">
@@ -29,7 +30,7 @@ function App() {
        <Route path='/register' element={<Registerscreen/>}/>
        <Route path='/login' element={<Loginscreen/>}/>
        <Route path='/profile' element={<Profilescreen/>}/>
-
+       <Route path='/admin' element={<Adminscreen/>}/>
        </Routes>
        </BrowserRouter>
 

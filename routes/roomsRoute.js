@@ -1,6 +1,7 @@
 // contains end point of rooms
 
 const express = require ('express');
+const { router } = require('server');
 const Router = express.Router();
 
 const Room = require('../models/room');
@@ -33,7 +34,16 @@ Router.post("/getroombyid", async(req, res) => {
          return res.status(400).json({ message: error });
     }
 });
+router.post("/addroom",async(req,res)=>{
+    try {
+        const newroom = new Room(req.body)
+        await newroom.save()
 
+        res.send('New Room Added Successfully')
+    } catch (error) {
+        return res.status(400).json({error});
+    }
+});
 
 
 module.exports = Router;
