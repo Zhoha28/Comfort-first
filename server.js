@@ -22,7 +22,16 @@ app.use(express.json());
 app.use("/", express.static("build"));
 
 app.get(
-  ["/", "/services", "/about", "/login", "/home", "/register", "/profile"],
+  [
+    "/",
+    "/services",
+    "/about",
+    "/login",
+    "/home",
+    "/register",
+    "/profile",
+    "/admin",
+  ],
   function (req, res) {
     res.sendFile(path.join(__dirname, "build", "index.html"));
   }
@@ -33,6 +42,7 @@ app.use("/api/users", userRoute);
 app.use("/api/service", serviceRoute);
 app.use("/api/bookings", bookingsRoute);
 app.use("/api/about", aboutRoute);
+
 //port for express - 3000 in this case
 // const port = process.env.PORT || 6000;
 const port = 6001;
