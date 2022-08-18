@@ -1,5 +1,15 @@
 #Navbar-container{
     background-color: #282828;
+    padding: 2.4rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+#navbarNav{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
 }
 .btn-drop{
     font-size: 18px !important;
@@ -19,4 +29,8 @@
     color: white;
     width: auto;
     margin: 0px;
+}
+
+nav{
+    padding:2rem;
 }

@@ -29,6 +29,7 @@ function Profilescreen() {
                         <p>Name: {user.name}</p>
                         <p>Email: {user.email}</p>
                         <p>Admin: {user.isAdmin ? 'Yes' : 'No'}</p>
+                        <p>{user.isAdmin ? <a href="/admin" className='btn btn-primary'>Go to admin panel    </a> : ''}</p>
                         <br />
                     </div>
                 </TabPane>
