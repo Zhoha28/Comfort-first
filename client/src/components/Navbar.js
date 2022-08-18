@@ -20,9 +20,7 @@ function Navbar() {
                     <li className="nav-item active">
                         <a className="nav-link" href="/">Home</a>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/home">Hotels</a>
-                    </li>
+                    
                     <li className="nav-item">
                         <a className="nav-link" href="/services">Services</a>
                     </li>
@@ -32,12 +30,16 @@ function Navbar() {
                     </li>
 
                     {localStorage.getItem('currentUser') ? (
-                        <li className="dropdown nav-item">
-                            <DropdownButton className="dropdown-menu btn-drop" aria-labelledby="dropdownMenuButton" title={JSON.parse(localStorage.getItem('currentUser')).name}>
+                       <><li className="nav-item">
+                        <a className="nav-link" href="/home">Hotels</a>
+                    </li>
+                        <li className="dropdown nav-item justify-self-end">
+                            <DropdownButton className="dropdown-menu btn-drop btn-primary-outline" aria-labelledby="dropdownMenuButton" title={JSON.parse(localStorage.getItem('currentUser')).name}>
                                 <Dropdown.Item  className="dropdown-item" href="/profile">Profile</Dropdown.Item>
                                 <Dropdown.Item className="dropdown-item" href="#" onClick={logout}>Logout</Dropdown.Item>
                             </DropdownButton>
                         </li>
+                        </> 
 
                     ) : (
                         <>
