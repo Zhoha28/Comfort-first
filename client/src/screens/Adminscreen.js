@@ -15,7 +15,7 @@ function Adminscreen() {
   }, []);
 
   return (
-    <div className="mt-3 ml-3 bs">
+    <div className="mt-3 mx-4 bs">
       <h1 className="text-center">
         <b>Admin Panel</b>
       </h1>

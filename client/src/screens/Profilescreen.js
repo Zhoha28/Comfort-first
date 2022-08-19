@@ -20,7 +20,7 @@ function Profilescreen() {
     }, [])
 
     return (
-        <div className='my-5 mx-3'>
+        <div className='my-5 mx-4'>
             <Tabs defaultActiveKey="1">
                 <TabPane tab="Profile" key="1">
                     <h1>My Profile</h1>
