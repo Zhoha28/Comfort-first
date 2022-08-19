@@ -18,11 +18,11 @@ function Footer() {
                         <div className="col-md-4 ">
                         <h6 className='text-white'>Our Team</h6>
                             <ul className="list-unstyled link">
-                                <li><a href="http://zhohadamani.live">Zhoha Damani</a></li>
-                                <li><a href="/">Mihir Patel</a></li>
-                                <li><a href="/">Joel</a></li>
+                                <li><a href="http://zhohadamani.live" target="_blank">Zhoha Damani</a></li>
+                                <li><a href="#">Mihir Patel</a></li>
+                                <li><a href="https://soft-pudding-df7dcb.netlify.app/" target="_blank">Joel Macwan</a></li>
                                 <li><a href="/">Megha Mathew</a></li>
-                                <li><a href="/">Aakash</a></li>
+                                <li><a href="https://www.linkedin.com/in/aakash-achankutty/" target="_blank">Aakash Achankutty</a></li>
                             </ul>
                         </div>
                         <div className="col-md-4  contact-info">
