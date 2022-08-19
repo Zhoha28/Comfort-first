@@ -26,7 +26,7 @@ function Frontpage() {
 
 
 
-      <section className="py-5 bg-light">
+      <section className="py-5 bg-light" id='next'>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">

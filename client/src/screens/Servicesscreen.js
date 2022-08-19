@@ -61,7 +61,7 @@ function ServiceScreen() {
     </a>
   </section>
         
-    <section className="wrapper">
+    <section className="wrapper" id="next">
       <div className="container-fostrap">
         <div className="content">
           <div className="container">

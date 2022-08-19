@@ -95,10 +95,10 @@ export function MyBookings() {
     return (
         <div>
             <div className='row mx-3 my-3'>
-                <div className='col-md-6'>
+               
                     {loading && (<Loader />)}
                     {bookings && (bookings.map(booking => {
-                        return <div className='bs'>
+                        return  <div className='col-md-6'><div className='bs card p-3' style={{borderRadius:`10px`}}>
                             <h4>{booking.room}</h4>
                             <p><b>Booking Id:</b> {booking._id}</p>
                             <p><b>Checking Date:</b> {booking.fromdate}</p>
@@ -109,12 +109,12 @@ export function MyBookings() {
                                 {booking.status == 'booked' && (<button className='btn btn-primary' onClick={() => cancelBooking(booking._id, booking.roomid)}>Cancel Booking</button>)}
                             </div>
                             <br />
-                        </div>
+                        </div></div>
                     }))}
 
                 </div>
 
-            </div>
+            
         </div>
     )
 }
