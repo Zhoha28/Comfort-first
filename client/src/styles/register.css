@@ -1,28 +1,32 @@
-input{
-    width: 25rem !important;
-    padding: 15px !important;
-    font-family: 'Rubik', sans-serif;
-  }
 
-.bs{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin-top: 20px ;
-    border-radius: 5px ;
-    padding: 20px;
+.forms-inputs {
+  position: relative;
 }
-
-*{
-    font-family: 'Rubik', sans-serif;
+.forms-inputs span {
+  position: absolute;
+  top: -18px;
+  left: 10px;
+  background-color: #fff;
+  padding: 5px 10px;
+  font-size: 15px;
 }
-
-#loginform, #registerform{
-    width: 35%;
-    margin: auto;
-    padding:20px;
-    text-align: center;
-  }
-  
-  p{
-    font-size: 15px;
-  }
-  
+.forms-inputs input {
+  height: 50px;
+  width: 100%;
+  border: 2px solid #eee;
+}
+.forms-inputs input:focus {
+  box-shadow: none;
+  outline: none;
+  border: 2px solid #000;
+}
+.btn {
+  height: 50px;
+}
+.success-data {
+  display: flex;
+  flex-direction: column;
+}
+.bxs-badge-check {
+  font-size: 90px;
+}

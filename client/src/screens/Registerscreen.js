@@ -41,16 +41,19 @@ function Registerscreen() {
     }
   }
   return (
-    <div>
+    <>
       {loading && (<Loader/>)}
       {success && (<Success success='User Registered Successfully' />)}
       {error && (<Error error='Email already registred' />)}
-      <div className="row-justify-content-center" id="registerform">
-        <div className="col-mid-5">
-          <div className="bs">
-            <h2>Register</h2>
-            <p>
-              <input
+
+
+      <div class="row d-flex justify-content-center">
+     
+     <div class="col-md-6">
+     <h2 className="mx-auto">REGISTER</h2>
+       <div class="card px-5 py-5" id="registerform">
+         <div class="form-data">
+           <div class="forms-inputs mb-4" > <span>Name</span> <input
                 type="text"
                 classname="form-control"
                 placeholder="Name"
@@ -59,9 +62,10 @@ function Registerscreen() {
                   setname(e.target.value);
                 }}
               ></input>
-            </p>
-            <p>
-              <input
+         
+           </div>
+
+           <div class="forms-inputs mb-4" > <span>Email</span>  <input
                 type="text"
                 classname="form-control"
                 placeholder="Email"
@@ -70,9 +74,10 @@ function Registerscreen() {
                   setemail(e.target.value);
                 }}
               ></input>
-            </p>
-            <p>
-              <input
+         
+           </div>
+
+           <div class="forms-inputs mb-4"> <span>Password</span>    <input
                 type="text"
                 classname="form-control"
                 placeholder="Password"
@@ -81,9 +86,9 @@ function Registerscreen() {
                   setpassword(e.target.value);
                 }}
               ></input>
-            </p>
-            <p>
-              <input
+            
+           </div>
+           <div class="forms-inputs mb-4"> <span>Password</span>    <input
                 type="text"
                 classname="form-control"
                 placeholder="Confirm Password"
@@ -92,15 +97,21 @@ function Registerscreen() {
                   setcpassword(e.target.value);
                 }}
               ></input>
-            </p>
+            
+           </div>
+           <div class="mb-3"> <button class="btn btn-dark w-100"
+          
+          onClick={register}>Register</button> </div>
+         </div>
+    
+       </div>
+     </div>
+   </div>
 
-            <button className="btn btn-primary btn-small-primary " onClick={register}>
-              Register
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+
+
+
+    </>
   );
 }
 
