@@ -163,13 +163,13 @@ function Bookingscreen(match) {
                                         <tr>
 
                                             <th scope="row">{JSON.parse(localStorage.getItem('currentUser')).name}</th>
-                                            <td>$ {room.rentperday}</td>
+                                            <td>{room.rentperday}</td>
 
                                             <td>{fromdate}</td>
                                             <td>{todate}</td>
                                             <td>{totaldays}</td>
-                                            <td>{room.rentperday}</td>
-                                            <td>{totalamount}</td>
+                                            <td>$ {room.rentperday}</td>
+                                            <td>$ {totalamount}</td>
 
 
                                         </tr>
