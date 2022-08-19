@@ -248,7 +248,7 @@ font-family: 'Poppins', sans-serif;
 .site-hero .heading {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  text-shadow: 3px 3px #B99263;
+  text-shadow: 3px 3px #2828285e;
 }
 .site-hero .scroll-down {
   position: absolute;
@@ -1528,11 +1528,11 @@ font-family: 'Poppins', sans-serif;
 }
 
 .custom-caption {
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: 0.2em;
   color:#B99263 !important;
-  font-weight: 600;
-    /* text-shadow: 3px 3px #B99263; */
+  font-weight: 800;
+  text-shadow: 1px 1px #2828285e;
 }
 
 .bg-image {
