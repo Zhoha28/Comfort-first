@@ -6,16 +6,16 @@ import Error from "../components/Error";
 
 function Aboutscreen() {
 
-   // states for rooms to store room info
-   const [service, setservice] = useState([]);
+  // states for rooms to store room info
+  const [service, setservice] = useState([]);
 
-   // loading state
-   const [loading, setloading] = useState(true);
- 
-   // error state to store and display any errors
-   const [error, seterror] = useState(false);
+  // loading state
+  const [loading, setloading] = useState(true);
 
-   useEffect(() => {
+  // error state to store and display any errors
+  const [error, seterror] = useState(false);
+
+  useEffect(() => {
     // fetch data through the API endpoint
     async function fetchData() {
       try {
@@ -42,40 +42,63 @@ function Aboutscreen() {
   }, []);
 
   return (
-    <section className="px-4" id="outerbg">
-            <h4 className="subtitle pt-4">SOME INTERESTING INFORMATION</h4>
-            <h2 className='title'>About Us</h2>
-    <div>
-       {loading ? (
-                <Loader> </Loader>
-              ) : error ? (
-                <Error></Error>
-              ) : (
-                service.map((sr) => {
-                  return (
-                    <div className="col-xs-12 col-sm-12 justify-center mx-auto" id="justify-cn">
-        <img src={sr.pic} className='my-2' alt="{sr.heading}"/>
-        <div id="about" className="container-fluid">
-      <div className="row mx-4 my-4">
-        <div className="col-md-12">
-          {/* <h2>About {sr.heading}</h2> */}
-          <br />
-          <div className="jumbotron">
-            <h4>Hotel Overview</h4>
-            <br />
-            <p>
-              {sr.description}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div> </div>
-    );
-                })
-              )}
+    <>
 
-    </div>
-    </section>
+      {loading ? (
+        <Loader> </Loader>
+      ) : error ? (
+        <Error></Error>
+      ) : (
+        service.map((sr) => {
+          return (
+            <>
+              <section className="site-hero inner-page overlay" style={{ backgroundImage: `url('https://i.postimg.cc/6pF9GVxj/hero-4.jpg')` }} data-stellar-background-ratio="0.5">
+                <div className="container">
+                  <div className="row site-hero-inner justify-content-center align-items-center">
+                    <div className="col-md-10 text-center" data-aos="fade">
+                      <h1 className="heading mb-3">About Us</h1>
+                     
+                    </div>
+                  </div>
+                </div>
+
+                <a className="mouse smoothscroll" href="#next">
+                  <div className="mouse-icon">
+                    <span className="mouse-wheel"></span>
+                  </div>
+                </a>
+              </section>
+              <section className="py-5 bg-light">
+                <div className="container">
+                  <div className="row align-items-center">
+                    <div className="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
+                      <figure className="img-absolute">
+                        <img src="https://i.postimg.cc/xCJpNHYR/food-1.jpg" alt="Image" className="img-fluid" />
+                      </figure>
+                      <img src={sr.pic} alt="Image" className="img-fluid rounded" />
+                    </div>
+                    <div className="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
+                      <h2 className="heading">Welcome!</h2>
+                      <p className="mb-4"> {sr.description}</p>
+
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+           
+            </>
+
+
+
+
+          )
+        }
+        )
+      )
+      }
+
+    </>
   )
 }
 

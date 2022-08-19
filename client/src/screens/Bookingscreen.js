@@ -41,8 +41,8 @@ function Bookingscreen(match) {
     // useeffect
     useEffect(() => {
         // fetch data through the API endpoint
-        if(!localStorage.getItem('currentUser')){
-            window.location.reload='/login'
+        if (!localStorage.getItem('currentUser')) {
+            window.location.reload = '/login'
         }
         async function fetchData() {
             try {
@@ -85,96 +85,106 @@ function Bookingscreen(match) {
             setloading(true);
             const result = await axios.post('/api/bookings/bookroom', bookingDetails);
             setloading(false)
-            Swal.fire('Congrats' , 'Your Room has booked succeessfully' , 'success').then(result=>{
-                window.location.href='/profile'
+            Swal.fire('Congrats', 'Your Room has booked succeessfully', 'success').then(result => {
+                window.location.href = '/profile'
             })
         } catch (error) {
             setloading(false)
-            Swal.fire('Oops' , 'Something went wrong , please try later' , 'error');
+            Swal.fire('Oops', 'Something went wrong , please try later', 'error');
         }
     }
 
 
     return (
-        <section className="px-4" id="outerbg">
-            <h4 className="subtitle pt-4">BOOKING DETAILS ABOUT</h4>
-            <h2 className='title'>Your Room</h2>
-        <div className='m-5'>
-           {loading ? (<Loader/>) : error ? (<Error/>) 
-            
-            : room ? 
-            (<div>
+        <>
 
-                <div className="container">
+            <section id="outerbg">
 
-                    <div className="grid product">
-                        <div className="column-xs-12 column-md-7">
-                            <div className="product-gallery">
-                                <div className="product-image">
-                                    <img src={img} alt="{room.name}"></img>
+                <div >
+                    {loading ? (<Loader />) : error ? (<Error />)
+
+                        : room ?
+                            (<>
+                                <section className="site-hero inner-page overlay" style={{ backgroundImage: `url(${img})` }} data-stellar-background-ratio="0.5">
+                                    <div className="container">
+                                        <div className="row site-hero-inner justify-content-center align-items-center">
+                                            <div className="col-md-10 text-center" data-aos="fade">
+                                                <h1 className="heading mb-3">{room.name}</h1>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a className="mouse smoothscroll" href="#next">
+                                        <div className="mouse-icon">
+                                            <span className="mouse-wheel"></span>
+                                        </div>
+                                    </a>
+                                </section>
+
+                                <div className="container">
+
+                                    <div className="grid product">
+                                
+                                        <div className="column-xs-12 column-md-12">
+                                           
+                                            <h2>Room rent is - ${room.rentperday}/ day</h2>
+                                            <div className="description">
+
+                                                <p>{room.description}</p>
+                                            </div>
+
+                                            <StripeCheckout
+                                                amount={totalamount * 100}
+                                                token={onToken}
+                                                currency='CAD'
+                                                stripeKey="pk_test_51LR4xpIAL09mD6D1DligdTHdNu9996tTqUFG1MC6O7G9vLQCBjO75IWcmz7oGq6g8tyRDydBSOXukKGrSVvgm2ZJ00xUJVtCPS"
+                                            >
+                                                <button className="btn btn-primary">Pay Now</button>
+                                            </StripeCheckout>
+                                        </div>
+                                    </div>
                                 </div>
 
-                            </div>
-                        </div>
-                        <div className="column-xs-12 column-md-5">
-                            <h1>{room.name}</h1>
-                            <h2>${room.rentperday}/ day</h2>
-                            <div className="description">
+                                <table className="table table-responsive bg-dark text-white container my-3">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Amount</th>
+                                            <th scope="col">From Date</th>
+                                            <th scope="col">To Date</th>
+                                            <th scope="col">Total days</th>
 
-                                <p>{room.description}</p>
-                            </div>
-                            
-                            <StripeCheckout
-                                amount={totalamount * 100}
-                                token={onToken}
-                                currency='CAD'
-                                stripeKey="pk_test_51LR4xpIAL09mD6D1DligdTHdNu9996tTqUFG1MC6O7G9vLQCBjO75IWcmz7oGq6g8tyRDydBSOXukKGrSVvgm2ZJ00xUJVtCPS"
-                            >
-                                <button className="btn btn-primary">Pay Now</button>
-                            </StripeCheckout>
-                        </div>
-                    </div>
+                                            <th scope="col">Rent per day</th>
+                                            <th scope="col">Total Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+
+                                            <th scope="row">{JSON.parse(localStorage.getItem('currentUser')).name}</th>
+                                            <td>$ {room.rentperday}</td>
+
+                                            <td>{fromdate}</td>
+                                            <td>{todate}</td>
+                                            <td>{totaldays}</td>
+                                            <td>{room.rentperday}</td>
+                                            <td>{totalamount}</td>
+
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+
+
+
+
+                            </>) : (<Error></Error>)}
                 </div>
-
-                <table className="table">
-                    <thead>
-                        <tr>
-
-                            <th scope="col">Name</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">From Date</th>
-                            <th scope="col">To Date</th>
-                            <th scope="col">Total days</th>
-
-                            <th scope="col">Rent per day</th>
-                            <th scope="col">Total Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {/* {console.log(JSON.parse(localStorage.getItem('currentUser'))._id)} */}
-                            <th scope="row">{JSON.parse(localStorage.getItem('currentUser')).name}</th>
-                            <td>$ {room.rentperday}</td>
-
-                            <td>{fromdate}</td>
-                            <td>{todate}</td>
-                            <td>{totaldays}</td>
-                            <td>{room.rentperday}</td>
-                            <td>{totalamount}</td>
-
-
-                        </tr>
-
-                    </tbody>
-                </table>
-
-
-
-
-
-            </div>) : (<Error></Error>)}
-        </div>
-        </section>
+            </section>
+        </>
     );
 }
 

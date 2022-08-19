@@ -70,11 +70,13 @@ h5 {
 }
 .btn.btn-outline-white-primary {
   border: 2px solid #fff;
+  font-weight: 600;
 }
 .btn.btn-outline-white-primary:hover {
   border: 2px solid transparent;
-  background: #ffba5a;
+  background: #B99263;
   color: #fff;
+
 }
 .btn.uppercase {
   text-transform: uppercase;
@@ -241,6 +243,7 @@ textarea.form-control {
 .site-hero .heading {
   font-family: "Playfair Display", times, serif;
   font-weight: bold;
+  text-shadow: 3px 3px #B99263;
 }
 .site-hero .scroll-down {
   position: absolute;
@@ -1522,6 +1525,9 @@ textarea.form-control {
 .custom-caption {
   font-size: 14px;
   letter-spacing: 0.2em;
+  color:#B99263 !important;
+  font-weight: 600;
+    /* text-shadow: 3px 3px #B99263; */
 }
 
 .bg-image {

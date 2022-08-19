@@ -6,53 +6,38 @@ function Footer() {
         <>
             <footer className="section footer-section">
                 <div className="container">
-                    <div className="row mb-4">
-                        <div className="col-md-3 mb-5">
+                    <div className="row mb-2">
+                        <div className="col-md-4 ">
+                            <h6 className='text-white'>Quick Links</h6>
                             <ul className="list-unstyled link">
-                                <li><a href="/">About Us</a></li>
-                                <li><a href="/">Terms &amp; Conditions</a></li>
-                                <li><a href="/">Privacy Policy</a></li>
-                                <li><a href="/">Rooms</a></li>
+                                <li><a href="/about">About Us</a></li>
+                                <li><a href="/services">Services</a></li>
+                                <li><a href="/home">Hotels</a></li>
                             </ul>
                         </div>
-                        <div className="col-md-3 mb-5">
+                        <div className="col-md-4 ">
+                        <h6 className='text-white'>Our Team</h6>
                             <ul className="list-unstyled link">
-                                <li><a href="/">The Rooms &amp; Suites</a></li>
-                                <li><a href="/">About Us</a></li>
-                                <li><a href="/">Contact Us</a></li>
-                                <li><a href="/">Restaurant</a></li>
+                                <li><a href="http://zhohadamani.live">Zhoha Damani</a></li>
+                                <li><a href="/">Mihir Patel</a></li>
+                                <li><a href="/">Joel</a></li>
+                                <li><a href="/">Megha Mathew</a></li>
+                                <li><a href="/">Aakash</a></li>
                             </ul>
                         </div>
-                        <div className="col-md-3 mb-5 pr-md-5 contact-info">
-                            <li>198 West 21th Street, <br></br> Suite 721 New York NY 10016</li>
-                            <p><span className="d-block"><span className="ion-ios-location h5 mr-3 text-primary"></span>Address:</span> <span> 198 West 21th Street, <br /> Suite 721 New York NY 10016</span></p>
-                            <p><span className="d-block"><span className="ion-ios-telephone h5 mr-3 text-primary"></span>Phone:</span> <span> (+1) 435 3533</span></p>
-                            <p><span className="d-block"><span className="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> info@domain.com</span></p>
-                        </div>
-                        <div className="col-md-3 mb-5">
-                            <p>Sign up for our newsletter</p>
-                            <form action="#" className="footer-newsletter">
-                                <div className="form-group">
-                                    <input type="email" className="form-control" placeholder="Email..." />
-                                        <button type="submit" className="btn"><span className="fa fa-paper-plane"></span></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div className="row pt-5">
-                      
+                        <div className="col-md-4  contact-info">
 
-                        <p className="col-md-6 text-right social">
-                            <a href="/"><span className="fa fa-tripadvisor"></span></a>
-                            <a href="/"><span className="fa fa-facebook"></span></a>
-                            <a href="/"><span className="fa fa-twitter"></span></a>
-                            <a href="/"><span className="fa fa-linkedin"></span></a>
-                            <a href="/"><span className="fa fa-vimeo"></span></a>
-                        </p>
+                            <p><span className="d-block"><span className="ion-ios-location h5 mr-3 text-primary"></span>Address:</span> <span> 299 Doon Valley Dr, <br /> Kitchener, ON N2G 4M4</span></p>
+                            <p><span className="d-block"><span className="ion-ios-telephone h5 mr-3 text-primary"></span>Phone:</span> <span> (+1) 435 3533</span></p>
+                            <p><span className="d-block"><span className="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> hello@comfortfirst.ca</span></p>
+                        </div>
+
                     </div>
+          
                 </div>
             </footer>
         </>
-)}
+    )
+}
 
 export default Footer;

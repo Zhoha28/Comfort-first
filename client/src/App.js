@@ -1,5 +1,5 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
+import NavbarComponent from "./components/NavbarComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Frontpage from "./screens/Frontpage";
 import Footer from "./components/Footer";
@@ -14,7 +14,7 @@ import Adminscreen from "./screens/Adminscreen";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <NavbarComponent />
       {/* <Homescreen/> */}
       <BrowserRouter>
         <Routes>

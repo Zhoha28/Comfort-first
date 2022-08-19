@@ -43,16 +43,29 @@ function ServiceScreen() {
   }, []);
 
   return (
-    <section className="px-4" id="outerbg">
-            <h4 className="subtitle pt-4">PROVIDING EXCLUSIVE SERVICES</h4>
-            <h2 className='title'>Our Services</h2>
+    <>
+    <section className="site-hero inner-page overlay" style={{ backgroundImage: `url('https://i.postimg.cc/6pF9GVxj/hero-4.jpg')` }} data-stellar-background-ratio="0.5">
+    <div className="container">
+      <div className="row site-hero-inner justify-content-center align-items-center">
+        <div className="col-md-10 text-center" data-aos="fade">
+          <h1 className="heading mb-3">Services</h1>
+         
+        </div>
+      </div>
+    </div>
+
+    <a className="mouse smoothscroll" href="#next">
+      <div className="mouse-icon">
+        <span className="mouse-wheel"></span>
+      </div>
+    </a>
+  </section>
+        
     <section className="wrapper">
       <div className="container-fostrap">
         <div className="content">
           <div className="container">
-            {/* <div>
-              <h1>Our services</h1>
-            </div> */}
+          <div class="row">
             <div className="row">
               {loading ? (
                 <Loader> </Loader>
@@ -61,26 +74,36 @@ function ServiceScreen() {
               ) : (
                 service.map((sr) => {
                   return (
-                    <div className="col-xs-12 col-sm-4">
-                      <div className="card">
-                        <a className="img-card" href="/">
-                          <img src={sr.pic} alt="{sr.heading}"/>
-                        </a>
-                        <div className="card-content">
-                          <h4 className="card-title">{sr.heading}</h4>
-                          <p className="">{sr.content}</p>
+                
+                      
+               
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 post mb-5" data-aos="fade-up" data-aos-delay="100">
+              
+                          <div class="media media-custom d-block mb-4 h-100">
+                            <a href="#" class="mb-4 d-block"><img src={sr.pic} alt="Image placeholder" class="img-fluid" /></a>
+                            <div class="media-body">
+                              <h2 class="mt-0 mb-3">{sr.heading}</h2>
+                              <p>{sr.content}</p>
+                            </div>
+                          </div>
+              
                         </div>
-                      </div>
-                    </div>
+              
+                     
+              
+                    
+               
                   );
                 })
               )}
+               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    </section>
+    </>
+    
   );
 }
 
